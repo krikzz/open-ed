@@ -1,0 +1,36 @@
+
+*************************************** Memory map (m68k)
+0x000000-0x1FFFFF ROM
+0x200000-0x3FFFFF ROM/RAM
+0xA13000-0xA130FF CTRL_REG (control register)
+
+*************************************** Memory map (Flash)
+0x000000-0x3FFFFF ROM
+0x400000-0x40FFFF cartridge menu
+0x40FFFF-0x7FFFFF unused
+
+*************************************** CTRL_REG bits description
+(write)
+0:SRM_ON	ROM/RAM select at 0x200000-0x3FFFFF. 0:ROM, 1:RAM
+1:x		unused
+2:ROM_BANK	Flash bank select: 0:0x000000-0x3fffff, 1:0x400000-0x7fffff
+3:LED		0:led off, 1: led on
+4:EXP_SS	cs pin control at EXP-SPI port (inverted)
+5:SDC_SS	SD chip select (inverted)
+6:SPI_CLK	SD clock*
+7:SPI_MOSI	SD data input
+8-15:x		unused
+
+(read)
+0:SPI_MISO	SD data output
+1-7:0		always 0
+8-15:x		open bus
+
+*If SPI_CLK set to 0, then every control register read cycle will generate
+automatic positive pulse at SPI_CLK. 
+This feature used to speed up serial data transfer.
+
+*************************************** Mapper modes
+ROM_4M		SRM_ON=0, game does not manage CTRL_REG. Most games work in this mode
+ROM_2M+RAM	SRM_ON=1, game does not manage CTRL_REG. Some games with battery ram.
+ROM_4M+RAM	Game manages CTRL_REG. Beyond Oasis, Sonic-3 etc.
