@@ -18,6 +18,7 @@ flashkit-md.exe: flaskit software v1.0.0.1
 open-ed.v: cartridge design in verilog
 open-ed-mapper: cartridge mapper description
 flashkit_mod.jpg: FlashKit mod required for open-ed programming
+open-ed.jpg: cartridge photo
 
 
 Menu programming
