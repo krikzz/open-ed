@@ -1,3 +1,5 @@
+# Open-ED
+
 Open-ED is a very simple and cheap open source Genesis/Megadrive cartridge. 
 The cartridge does not have its own processor or FPGA, 
 it is built in the old school style using only memory and discrete logic. 
@@ -26,3 +28,5 @@ open-ed.md should be burned to the upper bank of flash memory (0x400000-0x40FFFF
 Menu can be programmed to the flash chip using any flash programmer or FlashKit.
 FlashKit can program menu onboard (flashkit-md v1.0.0.1 required)
 FlashKit have to be modified: 10k pullup to the cart pin B27(/VRES)
+
+![Open-ED PCB](https://raw.githubusercontent.com/krikzz/open-ed/main/open-ed.jpg)
